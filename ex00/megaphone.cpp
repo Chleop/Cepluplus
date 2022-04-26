@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     }
     for (j = 0; j < arg.length(); j++)
     {
-        c = toupper(arg[j]);
+        c = std::toupper(arg[j]);
         std::cout << c;
     }
     std::cout << std::endl;
