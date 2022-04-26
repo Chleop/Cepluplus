@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 11:39:20 by cproesch          #+#    #+#             */
-/*   Updated: 2022/04/26 17:47:57 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/04/26 17:53:35 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ void        Contact::set_nickname(std::string name)
     this->_nickname = name;
     return;
 }
-std::string Contact::get_get_phonenumber(void) const
+std::string Contact::get_phonenumber(void) const
 {
-    return this->_get_phonenumber;
+    return this->_phonenumber;
 }
 
-void        Contact::set_get_phonenumber(std::string name)
+void        Contact::set_phonenumber(std::string name)
 {
-    this->_get_phonenumber = name;
+    this->_phonenumber = name;
     return;
 }
 std::string Contact::get_darkest_secret(void) const
