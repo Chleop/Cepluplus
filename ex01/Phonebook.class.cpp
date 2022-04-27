@@ -6,26 +6,16 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:07:20 by cproesch          #+#    #+#             */
-/*   Updated: 2022/04/26 18:14:10 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/04/27 17:54:39 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.class.hpp"
 
-// Phonebook::Phonebook(void)
-// {
-//     int i;
-//     Contact ctct("", "", "", "", "");
-    
-//     std::cout << "Constructor called" << std::endl;
-//     for(i = 0; i < PHONEBOOK_SIZE; i++)
-//         this->_contact[i] = ctct;
-//     return;
-// }
-
 Phonebook::Phonebook(void)
 {
     this->_nb_contacts = 0;
+    this->_current_contact = 0;
     return;
 }
 
@@ -34,64 +24,85 @@ Phonebook::~Phonebook(void)
     return;
 }
 
-void    Phonebook::print_phonebook(void)
+void    Phonebook::_set_nb_contacts(void)
 {
-    int i;
+    if (this->_nb_contacts < PHONEBOOK_SIZE)
+        this->_nb_contacts += 1;
+    return;
+}
 
-    std::cout.width(10);
-    std::cout << std::left << "index" << '|';
-    std::cout.width(10);
-    std::cout << std::left << "First name" << '|';
-    std::cout.width(10);
-    std::cout << std::left << "Last name" << '|';
-    std::cout.width(10);
-    std::cout << std::left << "Nickname";
-    std::cout << std::endl;
-    if(!this->_nb_contacts)
-        std::cout << "No contacts yet babe" << std::endl;
+void    Phonebook::_set_current_contact(void)
+{
+    if (this->_current_contact == PHONEBOOK_SIZE - 1)
+        this->_current_contact = 0;
     else
+        this->_current_contact += 1;
+    return;
+}
+
+void    Phonebook::search(void) const
+{
+    int         i;
+    std::string str;
+    std::string digit = "01234567";
+
+    this->_print_phonebook();
+    if(!this->_nb_contacts)
+        return;
+    while(1)
     {
-        for(i = 0; i < this->_nb_contacts; i++)
+        std::cout << "\nPlease type index: ";
+        std::getline(std::cin, str);
+        std::cout << "\n";
+        if (digit.find(str) == std::string::npos)
+            std::cout << "----------INPUT ENTERED IN NOT AN INDEX" << std::endl;
+        else
         {
-            std::cout.width(10);
-            std::cout << std::left << i << '|';
-            std::cout.width(10);
-            std::cout << std::left << this->_contact[i].get_first_name() << "|";
-            std::cout.width(10);
-            std::cout << std::left << this->_contact[i].get_last_name() << "|";
-            std::cout.width(10);
-            std::cout << std::left << this->_contact[i].get_nickname();
-            std::cout << std::endl;
+            i = atoi(str.c_str());
+            if (this->_contact[i].get_first_name().compare("") == 0)
+                std::cout << "----------INDEX DOES NOT MATCH AN EXISTING CONTACT" << std::endl;
+            else
+                break;
         }
     }
+    this->_print_contact(i);
     return;
+}
+
+std::string    Phonebook::_get_variable_from_user(int i)
+{
+    std::string input;
+    std::string request[5] = {
+        "Please type First name: ",
+        "Please type Last name: ",
+        "Please type Nickname: ",
+        "Please type phone number: ",
+        "Please type darkest secret: ",
+    };
+
+    while(1)
+    {
+        std::cout << request[i];
+        if (std::getline(std::cin, input))
+            break;
+    }
+    return input;
 }
 
 void    Phonebook::add_contact(void)
 {
-    int         contact_nb;
-    std::string fn;
-    std::string ln;
-    std::string nn;
-    std::string pn;
-    std::string ds;
+    int         i;
+    std::string var[5];
 
-    contact_nb = this->_nb_contacts % 8;
-    std::cout << "Please type First name: ";
-    std::cin >> fn;
-    std::cout << "Please type Last name: ";
-    std::cin >> ln;
-    std::cout << "Please type Nickname: ";
-    std::cin >> nn;
-    std::cout << "Please type phone number: ";
-    std::cin >> pn;
-    std::cout << "Please type darkest secret: ";
-    std::cin >> ds;    
-    this->_contact[contact_nb].set_first_name(fn);
-    this->_contact[contact_nb].set_last_name(ln);
-    this->_contact[contact_nb].set_nickname(nn);
-    this->_contact[contact_nb].set_phonenumber(pn);
-    this->_contact[contact_nb].set_darkest_secret(ds);
-    this->_nb_contacts += 1;
+    for(i = 0; i < 5; i++)
+        var[i] = _get_variable_from_user(i);
+    this->_contact[this->_current_contact].set_first_name(var[0]);
+    this->_contact[this->_current_contact].set_last_name(var[1]);
+    this->_contact[this->_current_contact].set_nickname(var[2]);
+    this->_contact[this->_current_contact].set_phonenumber(var[3]);
+    this->_contact[this->_current_contact].set_darkest_secret(var[4]);
+    this->_set_current_contact();
+    this->_set_nb_contacts();
+    std::cout << "----------CONTACT ADDED, THANK YOU!" << std::endl;
     return;
 }

@@ -6,7 +6,7 @@
 #    By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/26 11:24:34 by cproesch          #+#    #+#              #
-#    Updated: 2022/04/26 15:07:27 by cproesch         ###   ########.fr        #
+#    Updated: 2022/04/27 15:59:52 by cproesch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME	=	phonebook
 #									FILES									   #
 ################################################################################
 
-SRCS	=	main.cpp Contact.class.cpp Phonebook.class.cpp
+SRCS	=	main.cpp Contact.class.cpp Phonebook.class.cpp print_functions.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 

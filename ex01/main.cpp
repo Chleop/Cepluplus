@@ -6,28 +6,37 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 12:31:50 by cproesch          #+#    #+#             */
-/*   Updated: 2022/04/26 17:29:42 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/04/27 17:55:46 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.class.hpp"
 #include "Phonebook.class.hpp"
 
-int main(void)
+std::string    get_user_input(void)
 {
     std::string input;
-    Phonebook   pbk;
+
+    std::cout << "\nPlease type an option ('ADD', 'SEARCH' or 'EXIT'): ";
+    std::getline(std::cin, input);
+    std::cout << "\n";
+    return input;
+}
+
+int main(void)
+{
+    Phonebook   repertoire;
+    std::string input;
 
     while (1)
     {
-        std::cout << "Please type an option ('ADD', 'SEARCH' or 'EXIT'): ";
-        std::cin >> input;
+        input = get_user_input();
         if (input.compare("EXIT") == 0)
             break;
         else if (input.compare("SEARCH") == 0)
-            pbk.print_phonebook();
+            repertoire.search();
         else if (input.compare("ADD") == 0)
-            pbk.add_contact();
+            repertoire.add_contact();
     }
     return 0;
 }
