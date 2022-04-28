@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 11:42:37 by cproesch          #+#    #+#             */
-/*   Updated: 2022/04/27 17:01:21 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/04/28 17:37:06 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ private:
     void        _set_current_contact(void);
     void        _print_phonebook(void) const;
     void        _print_contact(int i) const;
+    void        _print_column(std::string str) const;
     void        _print_table(std::string str[], int nb_column) const;
     std::string _get_variable_from_user(int i);
 

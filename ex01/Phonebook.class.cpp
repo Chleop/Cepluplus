@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:07:20 by cproesch          #+#    #+#             */
-/*   Updated: 2022/04/27 17:54:39 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/04/28 17:27:33 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ std::string    Phonebook::_get_variable_from_user(int i)
     while(1)
     {
         std::cout << request[i];
-        if (std::getline(std::cin, input))
+        if (std::getline(std::cin, input) && input.compare(""))
             break;
     }
     return input;
