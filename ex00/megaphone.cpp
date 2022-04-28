@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 16:48:51 by cproesch          #+#    #+#             */
-/*   Updated: 2022/04/25 17:57:30 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/04/27 10:39:44 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     else
     {
         for (i = 1; i < argc; ++i)
-            arg = arg + ' ' + argv[i];
+            arg = arg + argv[i];
     }
     for (j = 0; j < arg.length(); j++)
     {
