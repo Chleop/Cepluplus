@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:07:20 by cproesch          #+#    #+#             */
-/*   Updated: 2022/04/28 17:27:33 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/02 13:31:03 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void    Phonebook::search(void) const
         std::cout << "\nPlease type index: ";
         std::getline(std::cin, str);
         std::cout << "\n";
+        if (str.empty())
+            return;
         if (digit.find(str) == std::string::npos)
             std::cout << "----------INPUT ENTERED IN NOT AN INDEX" << std::endl;
         else
@@ -85,6 +87,8 @@ std::string    Phonebook::_get_variable_from_user(int i)
         std::cout << request[i];
         if (std::getline(std::cin, input) && input.compare(""))
             break;
+        if (input.empty())
+            exit(1);
     }
     return input;
 }

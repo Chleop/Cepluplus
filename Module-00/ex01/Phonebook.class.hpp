@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 11:42:37 by cproesch          #+#    #+#             */
-/*   Updated: 2022/04/28 17:37:06 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/02 13:23:25 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <iomanip>
 # include <string>
+# include <stdlib.h>
 # include "Contact.class.hpp"
 
 # define PHONEBOOK_SIZE 8

@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 12:31:50 by cproesch          #+#    #+#             */
-/*   Updated: 2022/04/27 17:55:46 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/02 13:31:24 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(void)
     while (1)
     {
         input = get_user_input();
-        if (input.compare("EXIT") == 0)
+        if (input.empty() || input.compare("EXIT") == 0)
             break;
         else if (input.compare("SEARCH") == 0)
             repertoire.search();

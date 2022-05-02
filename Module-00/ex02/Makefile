@@ -6,7 +6,7 @@
 #    By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/26 11:24:34 by cproesch          #+#    #+#              #
-#    Updated: 2022/04/28 12:11:10 by cproesch         ###   ########.fr        #
+#    Updated: 2022/05/02 13:04:27 by cproesch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ OBJS	=	$(SRCS:.cpp=.o)
 
 RM		=	rm -rf
 
-CC 		=	g++
+CC 		=	c++
 
 IFLAGS	=	-I.
 

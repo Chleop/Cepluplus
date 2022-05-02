@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 10:00:27 by cproesch          #+#    #+#             */
-/*   Updated: 2022/04/29 10:05:52 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/02 12:14:29 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ public:
 // Fonctions non-membres
 
 // Constructeur et destructeur
+Zombie (std::string name);
+~Zombie (void);
 
 // Fonctions membres
+void announce( void );
 
 private:
 
@@ -39,9 +42,10 @@ private:
 
 // Fonctions non-membres
 
-// Fonctions membres
-
 // Attributs membres
+std::string name;
+
+// Fonctions membres
 
 };
 

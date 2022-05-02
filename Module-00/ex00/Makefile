@@ -6,7 +6,7 @@
 #    By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/25 17:36:45 by cproesch          #+#    #+#              #
-#    Updated: 2022/04/25 17:56:26 by cproesch         ###   ########.fr        #
+#    Updated: 2022/05/02 13:04:03 by cproesch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ NAME	=	megaphone
 
 RM		=	rm -rf
 
-CC 		=	g++
+CC 		=	c++
 
 CFLAGS	=	-Wall -Wextra -Werror
 
