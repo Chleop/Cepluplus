@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 09:59:11 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/02 12:27:29 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/03 18:16:31 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,20 @@
 
 Zombie::Zombie(void)
 {
+    std::cout \
+    << "\n///////////////////////////" << std::endl \
+    << "//  Constructor called   //" << std::endl \
+    << "///////////////////////////\n" << std::endl; \
     return;
 }
 
 Zombie::~Zombie(void)
 {
+    std::cout \
+    << "\n//////////////////////////" << std::endl \
+    << "//  Destructor called   //" << std::endl \
+    << "//////////////////////////" << std::endl; \
+    std::cout << "[" << this->name << " was destroyed]" << std::endl;
     return;
 }
 
@@ -31,26 +40,17 @@ Zombie::~Zombie(void)
 // **************************************************************************//
 
 // NON MEMBER
-Zombie* newZombie(std::string name)
-{
-    Zombie::Zombie  z;
-
-    this->name = name;
-    return z;
-}
-
-void randomChump( std::string name )
-{
-    Zombie::Zombie z;
-
-    z = newZombie(name);
-    z.announce();
-}
 
 // MEMBER
-Zombie::announce(void)
+void    Zombie::announce(void)
 {
     std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+    return;
+}
+
+void    Zombie::set_name(std::string name)
+{
+    this->name = name;
     return;
 }
 

@@ -6,7 +6,7 @@
 #    By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/26 11:24:34 by cproesch          #+#    #+#              #
-#    Updated: 2022/04/29 09:58:53 by cproesch         ###   ########.fr        #
+#    Updated: 2022/05/03 17:20:39 by cproesch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,11 @@ OBJS	=	$(SRCS:.cpp=.o)
 
 RM		=	rm -rf
 
-CC 		=	g++
+CC 		=	c++
 
 IFLAGS	=	-I.
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 ################################################################################
 #									RULES									   #
