@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 09:59:11 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/04 18:41:12 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/05 15:59:19 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 HumanB::HumanB(std::string name):
 _name(name)
 {
+    this->_w = NULL;
     std::cout << "Constructor called" << std::endl;
     return;
 }
@@ -36,10 +37,11 @@ HumanB::~HumanB(void)
 // MEMBER
 void    HumanB::attack(void) const
 {
-    std::cout   << this->_name 
-                << " attacks with their "
-                << this->_w->getType() 
-                << std::endl;
+    std::cout << this->_name << " attacks with their ";
+    if (this->_w)
+        std::cout << this->_w->getType() << std::endl;
+    else
+        std::cout << "bare hands!" << std::endl;
     return;
 }
 
