@@ -6,13 +6,12 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 09:59:11 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/04 15:18:59 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/05 19:10:41 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-
-# define NUMBER_OF_TESTS    4
+#include <iostream>
+#include "Harl.hpp"
 
 std::ostream& bold_on(std::ostream& os)
 {
@@ -26,19 +25,17 @@ std::ostream& bold_off(std::ostream& os)
 
 int main(void)
 {
-    Zombie      *x;
-    std::string name[NUMBER_OF_TESTS] = {"Marie", "Joseph", "Jesus", "Madeleine"};
-    int         N[NUMBER_OF_TESTS] = {1, 0, 10, 3};
-    int         i;
-    int         j;
-
-    for (i = 0; i < NUMBER_OF_TESTS; i++)
-    {
-        std::cout << bold_on << "Test " << i << " : Here is a Horde of " << N[i] << " Zombies who's names are all " << name[i] << bold_off << std::endl;
-        x = zombieHorde(N[i], name[i]);
-        for (j = 0; j < N[i]; j++)
-            x[j].announce();
-        delete[](x);
-    }
+    Harl h;
+    std::cout << bold_on << "\nTesting DEBUG:" << bold_off << std::endl;
+    h.complain("DEBUG");
+    std::cout << bold_on << "\nTesting INFO:" << bold_off << std::endl;
+    h.complain("INFO");
+    std::cout << bold_on << "\nTesting WARNING:" << bold_off << std::endl;
+    h.complain("WARNING");
+    std::cout << bold_on << "\nTesting ERROR:" << bold_off << std::endl;
+    h.complain("ERROR");
+    std::cout << bold_on << "\nTesting ERfffROR:" << bold_off << std::endl;
+    h.complain("ERfffROR");
+    std::cout << std::endl;
     return 0;
 }
