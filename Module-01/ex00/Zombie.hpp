@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 10:00:27 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/04 12:12:02 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/06 11:23:13 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,7 @@ std::string name;
 
 };
 
+Zombie* newZombie(std::string name);
+void    randomChump(std::string name);
 
 #endif
