@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 09:59:11 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/06 11:51:55 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/06 14:54:57 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@
 
 std::string    ft_replace(std::string str, std::string s1, std::string s2)
 {
-    size_t          location;
+    size_t      location;
+    std::string ptr;
 
     location = str.find(s1);
     while(location != std::string::npos)
     {
         str.erase(location, (s1.length()));
-        str.insert(location, s2);
-        location = str.find(s1);
+        ptr = str.insert(location, s2);
+        location = str.find(*(&ptr + s2.length()));
     }
     return str;
 }
