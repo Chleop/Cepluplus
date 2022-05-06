@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 09:59:11 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/05 13:31:48 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/06 11:51:55 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,14 @@ int main(int argc, char *argv[])
     std::string s1;
     std::string s2;
 
-    filename = (std::string)argv[1];
-    s1 = (std::string)argv[2];
-    s2 = (std::string)argv[3];
     if (argc != 4)
         std::cout << "Wrong input arguments\nUsage: ./exec_file <filename> <string1> <string2>" << std::endl;
     else
+    {
+        filename = (std::string)argv[1];
+        s1 = (std::string)argv[2];
+        s2 = (std::string)argv[3];
         transfer_and_replace(filename, s1, s2);
+    }
     return 0;
 }
