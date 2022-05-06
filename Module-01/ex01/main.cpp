@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 09:59:11 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/06 11:30:10 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/06 11:46:43 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(void)
 {
     Zombie      *x;
     std::string name[NUMBER_OF_TESTS] = {"Jesus", "Marie", "Joseph"};
-    int         N[NUMBER_OF_TESTS] = {10, 1, 0};
+    int         N[NUMBER_OF_TESTS] = {100};
     int         i;
     int         j;
 
