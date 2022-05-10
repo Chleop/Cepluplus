@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 18:20:25 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/10 15:35:50 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/10 15:36:18 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 
 // ************************************************************************** //
 //                                     CLASS                                  //
@@ -24,7 +25,8 @@ class Fixed {
 public:
 // Constructeur et destructeur
     Fixed(void);
-    Fixed(int const n);
+    Fixed(int const i);
+    Fixed(float const f);
     Fixed( Fixed const & src);
     ~Fixed(void);
 
@@ -33,20 +35,20 @@ public:
 // Fonctions membres
     Fixed & operator=(Fixed const & rhs);
     int     getRawBits(void) const;
+    int     getNbFractBits (void) const;
     void    setRawBits(int const raw);
+    float   toFloat(void) const;
+    int     toInt(void) const;
+
 
 private:
 // Attributs membres
-    int                 _x;
-    static const int    _y;
-    // A static data member of a class is also known as a "class variable", 
-    // because there is only one common variable for all the objects of that 
-    // same class, sharing the same value: i.e., its value is not different 
-    // from one object of this class to another.  static members have the same 
-    // properties as non-member variables but they enjoy class scope.
+    int                 _rawBits;
+    static const int    _nbFractBits;
 
 };
 
-const int    Fixed::_y = 8;
+const int    Fixed::_nbFractBits = 8;
+std::ostream &operator<<(std::ostream &o, Fixed const &inst);
 
 #endif
