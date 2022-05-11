@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 18:20:25 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/10 15:36:18 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/11 12:05:25 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,10 @@ public:
 private:
 // Attributs membres
     int                 _rawBits;
-    static const int    _nbFractBits;
+    static const int    _nbFractBits = 8;
 
 };
 
-const int    Fixed::_nbFractBits = 8;
 std::ostream &operator<<(std::ostream &o, Fixed const &inst);
 
 #endif
