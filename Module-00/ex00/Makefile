@@ -6,7 +6,7 @@
 #    By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/25 17:36:45 by cproesch          #+#    #+#              #
-#    Updated: 2022/05/02 13:04:03 by cproesch         ###   ########.fr        #
+#    Updated: 2022/05/11 20:22:29 by cproesch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,13 @@ NAME	=	megaphone
 #							COMMANDS AND FLAGS								   #
 ################################################################################
 
-RM		=	rm -rf
+RM			=	rm -rf
 
-CC 		=	c++
+CXX 		=	c++
 
-CFLAGS	=	-Wall -Wextra -Werror
+IFLAGS		=	-I.
+
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 ################################################################################
 #									FILES									   #
@@ -40,8 +42,8 @@ OBJS	=	$(SRCS:.cpp=.o)
 
 all:		$(NAME)
 
-.c.o:
-			$(CC) $(CFLAGS) -c $< -o $(<:.cpp.o)
+%.o:		%.cpp
+			$(CXX) -c $< $(CXXFLAGS) -o $@ $(IFLAGS)
 
 $(NAME):	$(OBJS)
 			$(CC) $(OBJS) -o $@

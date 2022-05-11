@@ -6,7 +6,7 @@
 #    By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/26 11:24:34 by cproesch          #+#    #+#              #
-#    Updated: 2022/05/02 13:04:08 by cproesch         ###   ########.fr        #
+#    Updated: 2022/05/11 20:22:34 by cproesch         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,11 @@ OBJS	=	$(SRCS:.cpp=.o)
 
 RM		=	rm -rf
 
-CC 		=	c++
+CXX 		=	c++
 
-IFLAGS	=	-I.
+IFLAGS		=	-I.
 
-CFLAGS	=	-Wall -Wextra -Werror
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 ################################################################################
 #									RULES									   #
@@ -42,8 +42,8 @@ CFLAGS	=	-Wall -Wextra -Werror
 
 all:		$(NAME)
 
-.c.o:
-			$(CC) $(CFLAGS) -c $< -o $(<:.cpp.o) $(IFLAGS)
+%.o:		%.cpp
+			$(CXX) -c $< $(CXXFLAGS) -o $@ $(IFLAGS)
 
 $(NAME):	$(OBJS)
 			$(CC) $(OBJS) -o $(NAME)
