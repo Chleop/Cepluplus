@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 14:41:39 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/10 12:12:02 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/11 12:08:47 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ _rawBits(0)
 Fixed::Fixed(int const i)
 {
     std::cout << "Int constructor called" << std::endl;
-    this->_rawBits = i << this->_nbFractBits;
+    this->_rawBits = i * (1 << Fixed::_nbFractBits);
     return;
 }
 
 Fixed::Fixed(float const f)
 {
     std::cout << "Float constructor called" << std::endl;
-    this->_rawBits = roundf(f * (1 << this->_nbFractBits));
+    this->_rawBits = roundf(f * (1 << Fixed::_nbFractBits));
     return;
 }
 
@@ -82,7 +82,7 @@ float   Fixed::toFloat(void) const
 {
     float f;
 
-    f = (float)this->_rawBits / (1 << this->_nbFractBits);
+    f = (float)this->_rawBits / (1 << Fixed::_nbFractBits);
     return f;
 }
 
@@ -90,6 +90,6 @@ int      Fixed::toInt(void) const
 {
     int i;
 
-    i = this->_rawBits >> this->_nbFractBits;
+    i = this->_rawBits / (1 << Fixed::_nbFractBits);
     return i;
 }
