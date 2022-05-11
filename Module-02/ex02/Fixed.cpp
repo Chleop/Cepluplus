@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 14:41:39 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/10 17:13:29 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/11 20:27:23 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,8 +123,8 @@ Fixed Fixed::operator * (Fixed const & rhs) const
 Fixed Fixed::operator / (Fixed const & rhs) const
 {
     float   a;
-
-    a = this->toFloat() / rhs.toFloat();
+    if (rhs.toFloat() != 0)
+        a = this->toFloat() / rhs.toFloat();
     return Fixed(a);
 }
 

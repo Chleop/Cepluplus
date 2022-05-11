@@ -6,11 +6,14 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 14:41:39 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/11 12:00:28 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/11 20:29:16 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
+
+/* !!!   Attention dansle sujet il est demande d'exclure les points situes sur 
+les arretes   !!! */
 
 float area(int x1, int y1, int x2, int y2, int x3, int y3)
 {
