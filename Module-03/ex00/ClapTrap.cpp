@@ -30,8 +30,7 @@ _name(name), _hitPoints(10), _energyPoints(10),_attackDamage(0)
     return;
 }
 
-ClapTrap::ClapTrap(ClapTrap const & src):
-_hitPoints(10), _energyPoints(10),_attackDamage(0)
+ClapTrap::ClapTrap(ClapTrap const & src)
 {
     std::cout << "Copy constructor called" << std::endl;
     *this = src;
@@ -94,7 +93,7 @@ std::ostream    & operator<<(std::ostream &o, ClapTrap const &i)
         << i.get_energyPoints()
         << " energy points, "
         << i.get_hitPoints()
-        << " hit points, and damages its target of "
+        << " hit points, and is able to damage its target of "
         << i.get_attackDamage()
         << " points."
         << std::endl;

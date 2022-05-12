@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 10:00:27 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/12 11:40:34 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/12 11:53:09 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 
 class ClapTrap
 {
-
 
 public:
 
@@ -44,13 +43,13 @@ public:
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
 
-
-
 private:
+
     std::string     _name;
     unsigned int    _hitPoints;
     unsigned int    _energyPoints;
     unsigned int    _attackDamage;
+
 };
 
 std::ostream    &operator<<(std::ostream &o, ClapTrap const &i);
