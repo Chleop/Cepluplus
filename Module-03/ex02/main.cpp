@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:15:36 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/12 13:07:23 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/12 13:09:34 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ int main(void)
     vilain.attack("Gentil oiseau des champs");
     std::cout << vilain << std::endl;
 
-    vilain.takeDamage(70);
-    std::cout << vilain << std::endl;
+    vilain.highFivesGuys();
+    vilain.highFivesGuys();
+    vilain.highFivesGuys();
 
-    vilain.highFivesGuys();
-    vilain.highFivesGuys();
-    vilain.highFivesGuys();
+    vilain.takeDamage(150);
+    std::cout << vilain << std::endl;
 
     vilain.beRepaired(50);
     std::cout << vilain << std::endl;
