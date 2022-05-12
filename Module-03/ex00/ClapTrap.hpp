@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 10:00:27 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/11 17:54:04 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/12 11:40:34 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,26 @@ public:
 
     ClapTrap & operator = (ClapTrap const & rhs);
 
+    std::string getName(void) const;
+    unsigned int get_hitPoints(void) const;
+    unsigned int get_energyPoints(void) const;
+    unsigned int get_attackDamage(void) const;
+
     void attack(const std::string& target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
 
-    std::string getName(void) const;
 
 
 private:
-    std::string _name;
-    int         _hitPoints;
-    int         _energyPoints;
-    int         _attackDamage;
+    std::string     _name;
+    unsigned int    _hitPoints;
+    unsigned int    _energyPoints;
+    unsigned int    _attackDamage;
 };
 
-std::ostream    & operator<<(std::ostream &o, ClapTrap const &i);
+std::ostream    &operator<<(std::ostream &o, ClapTrap const &i);
+std::ostream    &bold_on(std::ostream& os);
+std::ostream    &bold_off(std::ostream& os);
 
 #endif

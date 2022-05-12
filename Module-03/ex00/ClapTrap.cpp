@@ -45,6 +45,34 @@ ClapTrap::~ClapTrap(void)
 }
 
 
+// **************************************************************************//
+//                                 ACCESSORS                                 //
+// **************************************************************************//
+
+std::string ClapTrap::getName(void) const
+{
+    return _name;
+}
+
+unsigned int ClapTrap::get_hitPoints(void) const
+{
+    return _hitPoints;
+}
+
+unsigned int ClapTrap::get_energyPoints(void) const
+{
+    return _energyPoints;
+}
+
+unsigned int ClapTrap::get_attackDamage(void) const
+{
+    return _attackDamage;
+}
+
+// **************************************************************************//
+//                                 OPERATORS                                 //
+// **************************************************************************//
+
 ClapTrap &  ClapTrap::operator = (ClapTrap const & rhs)
 {
     std::cout << "assisgnment operator" << std::endl;
@@ -58,68 +86,132 @@ ClapTrap &  ClapTrap::operator = (ClapTrap const & rhs)
     return *this;
 }
 
+std::ostream    & operator<<(std::ostream &o, ClapTrap const &i)
+{
+    o   << std::setw(10)
+        << i.getName()
+        << " has "
+        << i.get_energyPoints()
+        << " energy points, "
+        << i.get_hitPoints()
+        << " hit points, and damages its target of "
+        << i.get_attackDamage()
+        << " points."
+        << std::endl;
+    return o;
+}
+
+
+// **************************************************************************//
+//                           PUBLIC FUNCTIONS                                //
+// **************************************************************************//
+
 void ClapTrap::attack(const std::string& target)
 {
-    if (target == "ff")
-        std::cout << "coucou";
+    if ((this->_hitPoints > 0) && (this->_energyPoints > 0))
+    {
+        std::cout   << bold_on
+                    << "=>  "
+                    << this->getName()
+                    << " attacks "
+                    << target
+                    << bold_off
+                    << std::endl;
+        if (this->_name.compare(target) == 0)
+        {
+            std::cout << "What ?? Cannot attack him/herself!" << std::endl;
+            return;
+        }
+        this->_energyPoints -= 1;
+        std::cout   << bold_on
+                    << "=>  "
+                    << target
+                    << " loses "
+                    << this->_attackDamage
+                    << " point(s)."
+                    << bold_off
+                    << std::endl;
+    }
+    else
+    {
+        std::cout   << bold_on
+                    << "=>  "
+                    << this->getName()
+                    << " cannot attack due to insuffisiant energy and/or hit points."
+                    << bold_off
+                    << std::endl;
+    }
     return;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    amount = 0;
+    if ((this->_hitPoints > 0) && (this->_energyPoints > 0))
+    {
+        if (this->_hitPoints >= amount)
+            this->_hitPoints -= amount;
+        else
+            this->_hitPoints = 0;
+        std::cout   << bold_on
+                    << "=>  "
+                    << this->getName()
+                    << " loses "
+                    << amount
+                    << " hit points."
+                    << bold_off
+                    << std::endl;
+    }
+    else
+    {
+        this->_hitPoints = 0;
+        std::cout   << bold_on
+                    << "=>  "
+                    << this->getName()
+                    << " cannot take more damage due to insuffisiant energy and/or hit points."
+                    << bold_off
+                    << std::endl;
+    }
     return;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    amount = 0;
+    if ((this->_hitPoints > 0) && (this->_energyPoints > 0))
+    {
+        this->_hitPoints += amount;
+        this->_energyPoints -= 1;
+        std::cout   << bold_on
+                    << "=>  "
+                    << this->getName()
+                    << " regained "
+                    << amount
+                    << " hit points."
+                    << bold_off
+                    << std::endl;
+    }
+    else
+    {
+        std::cout   << bold_on
+                    << "=>  "
+                    << this->getName()
+                    << " cannot be repaired due to insuffisiant energy and/or hit points."
+                    << bold_off
+                    << std::endl;
+    }
     return;
 }
 
-std::string ClapTrap::getName(void) const
+
+// **************************************************************************//
+//                           DESIGN FUNCTIONS                                //
+// **************************************************************************//
+
+std::ostream& bold_on(std::ostream& os)
 {
-    return _name;
+    return os << "\e[1m";
 }
 
-// **************************************************************************//
-//                              PUBLIC FUNCTIONS                             //
-// **************************************************************************//
-
-// NON MEMBER
-
-// MEMBER
-
-// **************************************************************************//
-//                             PUBLIC ATTRIBUTES                             //
-// **************************************************************************//
-
-// NON MEMBER
-
-// MEMBER
-
-// **************************************************************************//
-//                             PRIVATE FUNCTIONS                             //
-// **************************************************************************//
-
-// NON MEMBER
-
-// MEMBER
-
-// **************************************************************************//
-//                            PRIVATE ATTRIBUTES                             //
-// **************************************************************************//
-
-// NON MEMBER
-
-// MEMBER
-
-// **************************************************************************//
-//                                 OTHERS                                    //
-// **************************************************************************//
-
-std::ostream    & operator<<(std::ostream &o, ClapTrap const &i)
+std::ostream& bold_off(std::ostream& os)
 {
-    o << i.getName();
-    return o;
+    return os << "\e[0m";
 }
