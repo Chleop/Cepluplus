@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 18:56:10 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/13 15:12:43 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/13 15:20:27 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-# include "Animal.hpp"
+# include <iostream>
+# include <iomanip>
 
 // ************************************************************************** //
 //                                    CLASS                                   //
 // ************************************************************************** //
 
-class Dog : public virtual Animal
-{
+class WrongAnimal {
 
     public:
 
-        Dog(void);
-        Dog(std::string name);
-        Dog( Dog const & src);
-        ~Dog(void);
+                    WrongAnimal(void);
+                    WrongAnimal(std::string name);
+                    WrongAnimal(WrongAnimal const & src);
+                    virtual ~WrongAnimal(void);
 
-        Dog & operator=(Dog const & rhs);
+        WrongAnimal      &operator=(WrongAnimal const & rhs);
 
+        std::string     getType(void) const;
         void    makeSound(void) const;
 
     protected:
+
+        std::string _name;
+        std::string _type;
 
     private:
 
@@ -42,5 +46,6 @@ class Dog : public virtual Animal
 // ************************************************************************** //
 //                                   OTHERS                                   //
 // ************************************************************************** //
+
 
 #endif

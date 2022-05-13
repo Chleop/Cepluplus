@@ -1,45 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 12:11:20 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/13 15:13:06 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/13 15:16:25 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongCat.hpp"
 
 // **************************************************************************//
 //                         CONSTRUCTOR / DESTRUCTOR                          //
 // **************************************************************************//
 
-Animal::Animal(void):
-_type("")
+WrongCat::WrongCat(void)
 {
-    std::cout << "[Animal default constructor called]" << std::endl;
+    this->_type = "WrongCat";
+    std::cout << "[WrongCat default constructor called]" << std::endl;
     return;
 }
 
-Animal::Animal(std::string name):
-_name(name), _type("")
+WrongCat::WrongCat(std::string name)
 {
-    std::cout << "[Animal parametric constructor called]" << std::endl;
+    this->_name = name;
+    this->_type = "WrongCat";
+    std::cout << "[WrongCat parametric constructor called]" << std::endl;
     return;
 }
 
-Animal::Animal(Animal const & src)
+WrongCat::WrongCat(WrongCat const & src)
 {
-    std::cout << "[Animal copy constructor called]" << std::endl;
+    std::cout << "[WrongCat copy constructor called]" << std::endl;
     *this = src;
     return;
 }
 
-Animal::~Animal(void)
+WrongCat::~WrongCat(void)
 {
-    std::cout << "[Animal destructor called]" << std::endl;
+    std::cout << "[WrongCat destructor called]" << std::endl;
     return;
 }
 
@@ -48,20 +49,13 @@ Animal::~Animal(void)
 //                                 ACCESSORS                                 //
 // **************************************************************************//
 
-std::string Animal::getType(void) const
-{
-    std::cout << "[Animal getType function called]" << std::endl;
-    return this->_type;
-}
-
-
 // **************************************************************************//
 //                                 OPERATORS                                 //
 // **************************************************************************//
 
-Animal &     Animal::operator = (Animal const & rhs)
+WrongCat &     WrongCat::operator = (WrongCat const & rhs)
 {
-    std::cout << "[Animal assignment operator called]" << std::endl;
+    std::cout << "[WrongCat assignment operator called]" << std::endl;
     if (this != &rhs)
     {
         this->_type = rhs._type;
@@ -75,10 +69,10 @@ Animal &     Animal::operator = (Animal const & rhs)
 //                           PUBLIC FUNCTIONS                                //
 // **************************************************************************//
 
-void        Animal::makeSound(void) const
+void        WrongCat::makeSound(void) const
 {
-    std::cout << "[Animal makeSound function called]" << std::endl;
-    std::cout << std::setw(10) << bold_on << "NoiZE" << bold_off << std::endl;
+    std::cout << "[WrongCat makeSound function called]" << std::endl;
+    std::cout << std::setw(10) << bold_on << "!!! MAOUW MAOUW !!!" << bold_off << std::endl;
     return;
 }
 
@@ -86,13 +80,3 @@ void        Animal::makeSound(void) const
 // **************************************************************************//
 //                           DESIGN FUNCTIONS                                //
 // **************************************************************************//
-
-std::ostream& bold_on(std::ostream& os)
-{
-    return os << "\e[1m";
-}
-
-std::ostream& bold_off(std::ostream& os)
-{
-    return os << "\e[0m";
-}
