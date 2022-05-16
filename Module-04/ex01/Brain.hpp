@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 15:48:16 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/13 19:22:54 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/16 11:44:43 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class Brain {
 
         Brain   &operator = (Brain const & rhs);
 
+        std::string *getIdeas();
+
         std::string ideas[100];
 
     protected:
@@ -44,6 +46,5 @@ class Brain {
 
 std::ostream    &bold_on(std::ostream& os);
 std::ostream    &bold_off(std::ostream& os);
-std::ostream    &operator<<(std::ostream &o, Brain const &i);
 
 #endif

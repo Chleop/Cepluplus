@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 12:11:20 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/13 15:13:06 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/16 11:44:45 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Animal::Animal(Animal const & src)
 
 Animal::~Animal(void)
 {
-    std::cout << "[Animal destructor called]" << std::endl;
+    std::cout << "      [Animal destructor called]" << std::endl;
     return;
 }
 
