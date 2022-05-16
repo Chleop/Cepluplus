@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 12:11:20 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/16 11:44:45 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/16 13:15:43 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,12 @@ void        Animal::makeSound(void) const
     std::cout << "[Animal makeSound function called]" << std::endl;
     std::cout << std::setw(10) << bold_on << "NoiZE" << bold_off << std::endl;
     return;
+}
+
+void    Animal::setBrain(std::string *idTable)
+{
+    std::cout << "Unspecified animal has no brain" << std::endl;
+    idTable = NULL;
 }
 
 

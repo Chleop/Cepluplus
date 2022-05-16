@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 18:56:10 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/16 11:44:47 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/16 13:12:45 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Animal {
 
         std::string     getType(void) const;
         virtual void    makeSound(void) const;
-        virtual void    setBrain(std::string *idTable) = 0;
+        virtual void    setBrain(std::string *idTable);
 
     protected:
 
