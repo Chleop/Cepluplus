@@ -16,16 +16,17 @@
 //                         CONSTRUCTOR / DESTRUCTOR                          //
 // **************************************************************************//
 
-Bureaucrat::Bureaucrat(void)
+Bureaucrat::Bureaucrat(void):
+_name("Default"), _grade(75)
 {
-    std::cout << "Bureaucrat Default constructor called" << std::endl;
+    // std::cout << "Bureaucrat Default constructor called" << std::endl;
     return;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade):
 _name(name)
 {
-    std::cout << "Bureaucrat Parametric constructor called" << std::endl;
+    // std::cout << "Bureaucrat Parametric constructor called" << std::endl;
     try
     {
         if (grade < 1)
@@ -53,14 +54,14 @@ _name(name)
 
 Bureaucrat::Bureaucrat(Bureaucrat const & src)
 {
-    std::cout << "Bureaucrat Copy constructor called" << std::endl;
+    // std::cout << "Bureaucrat Copy constructor called" << std::endl;
     *this = src;
     return;
 }
 
 Bureaucrat::~Bureaucrat(void)
 {
-    std::cout << "Bureaucrat Destructor called" << std::endl;
+    // std::cout << "Bureaucrat Destructor called" << std::endl;
     return;
 }
 
@@ -70,7 +71,7 @@ Bureaucrat::~Bureaucrat(void)
 
 Bureaucrat &  Bureaucrat::operator = (Bureaucrat const & rhs)
 {
-    std::cout << "Bureaucrat assisgnment operator" << std::endl;
+    // std::cout << "Bureaucrat assisgnment operator" << std::endl;
     if (this != &rhs)
         this->_grade = rhs.getGrade();
     return *this;
@@ -78,8 +79,7 @@ Bureaucrat &  Bureaucrat::operator = (Bureaucrat const & rhs)
 
 std::ostream    & operator << (std::ostream &o, Bureaucrat const &i)
 {
-    o   << std::setw(10)
-        << "Bureaucrat "
+    o   << "    Bureaucrat "
         << i.getName()
         << " has grade "
         << i.getGrade()
@@ -150,7 +150,17 @@ void    Bureaucrat::downGrade(void)
     }
 }
 
+void    Bureaucrat::signForm(Form &form)
+{
+    form.beSigned(*this);
+    return;
+}
 
+void    Bureaucrat::executeForm(Form const &form)
+{
+    form.execute(*this);
+    return;
+}
 
 // **************************************************************************//
 //                           DESIGN FUNCTIONS                                //
@@ -165,3 +175,4 @@ std::ostream& bold_off(std::ostream& os)
 {
     return os << "\e[0m";
 }
+

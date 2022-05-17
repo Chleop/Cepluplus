@@ -19,14 +19,14 @@
 Form::Form(void):
 _name("Default"), _signature(false), _signingMinGrade(50), _executingMinGrade(100)
 {
-    std::cout << "Form Default constructor called" << std::endl;
+    // std::cout << "Form Default constructor called" << std::endl;
     return;
 }
 
 Form::Form(std::string name, const int signingMin, const int executingMin):
 _name(name), _signature(false), _signingMinGrade(signingMin), _executingMinGrade(executingMin)
 {
-    std::cout << "Form Parametric constructor called" << std::endl;
+    // std::cout << "Form Parametric constructor called" << std::endl;
     try
     {
         if ((signingMin < 1) || (executingMin < 1))
@@ -36,11 +36,11 @@ _name(name), _signature(false), _signingMinGrade(signingMin), _executingMinGrade
     }
     catch(Form::GradeTooHighException& e)
     {
-        std::cerr << "---" << e.wrongGrade() << std::endl;
+        std::cerr << e.wrongGrade() << std::endl;
     }
     catch(Form::GradeTooLowException& e)
     {
-        std::cerr << "---" << e.wrongGrade() << std::endl;
+        std::cerr << e.wrongGrade() << std::endl;
     }
     return;
 }
@@ -48,14 +48,14 @@ _name(name), _signature(false), _signingMinGrade(signingMin), _executingMinGrade
 Form::Form(Form const & src):
 _name(src._name), _signingMinGrade(src._signingMinGrade), _executingMinGrade(src._executingMinGrade)
 {
-    std::cout << "Form Copy constructor called" << std::endl;
+    // std::cout << "Form Copy constructor called" << std::endl;
     *this = src;
     return;
 }
 
 Form::~Form(void)
 {
-    std::cout << "Form Destructor called" << std::endl;
+    // std::cout << "Form Destructor called" << std::endl;
     return;
 }
 
@@ -65,7 +65,7 @@ Form::~Form(void)
 
 Form &  Form::operator = (Form const & rhs)
 {
-    std::cout << "assisgnment operator" << std::endl;
+    // std::cout << "Form assisgnment operator" << std::endl;
     if (this != &rhs)
         this->_signature = rhs.getSignature();
     return *this;
@@ -73,8 +73,7 @@ Form &  Form::operator = (Form const & rhs)
 
 std::ostream    & operator << (std::ostream &o, Form const &i)
 {
-    o   << std::setw(10)
-        << "Form "
+    o   << "    Form "
         << bold_on
         << i.getName()
         << bold_off
@@ -117,6 +116,11 @@ int                 Form::getSigningMinGrade(void) const
 int                 Form::getExecutingMinGrade(void) const
 {
     return(this->_executingMinGrade);
+}
+
+std::string         Form::getTarget(void) const
+{
+    return(this->p_target);
 }
 
 

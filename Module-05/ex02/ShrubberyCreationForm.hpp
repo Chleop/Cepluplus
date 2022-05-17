@@ -1,61 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/29 10:00:27 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/17 16:56:01 by cproesch         ###   ########.fr       */
+/*   Created: 2022/05/17 14:49:26 by cproesch          #+#    #+#             */
+/*   Updated: 2022/05/17 19:01:48 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
 
-# include "Bureaucrat.hpp"
+# include "Form.hpp"
 
 // ************************************************************************** //
 //                                     CLASS                                  //
 // ************************************************************************** //
 
-class Bureaucrat;
-
-class Form
+class ShrubberyCreationForm : public Form
 {
 
 public:
 
 // Constructors and destructors
-    Form(void);
-    Form(std::string name, const int signingMin, const int executingMin);
-    Form(Form const & src);
-    ~Form(void);
+    ShrubberyCreationForm(void);
+    ShrubberyCreationForm(std::string name, std::string target);
+    ShrubberyCreationForm(ShrubberyCreationForm const & src);
+    ~ShrubberyCreationForm(void);
 
 // Class operators
-    Form & operator = (Form const & rhs);
+    ShrubberyCreationForm & operator = (ShrubberyCreationForm const & rhs);
 
 // Accessors
     const std::string   getName(void) const;
     bool                getSignature(void) const;
     int                 getSigningMinGrade(void) const;
     int                 getExecutingMinGrade(void) const;
-
+    
 // Exceptions
-    class   GradeTooHighException : public std::exception
-    {
-        public:
-            virtual const char* wrongGrade() const throw();
-    };
-    class   GradeTooLowException : public std::exception
-    {
-        public:
-            virtual const char* wrongGrade() const throw();
-    };
 
 // Other functions
     void    beSigned(Bureaucrat &bur);
-    
+    void    execute(Bureaucrat const &executor) const;
+
 protected:
 
 private:
@@ -63,9 +52,8 @@ private:
     bool                _signature;
     const int           _signingMinGrade;
     const int           _executingMinGrade;
-
 };
 
-std::ostream    &operator << (std::ostream &o, Form const &i);
+std::ostream    &operator << (std::ostream &o, ShrubberyCreationForm const &i);
 
 #endif

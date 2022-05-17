@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 10:00:27 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/17 16:56:01 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/17 19:02:21 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ public:
     bool                getSignature(void) const;
     int                 getSigningMinGrade(void) const;
     int                 getExecutingMinGrade(void) const;
+    std::string         getTarget(void) const;
 
 // Exceptions
     class   GradeTooHighException : public std::exception
@@ -47,16 +48,18 @@ public:
         public:
             virtual const char* wrongGrade() const throw();
     };
-    class   GradeTooLowException : public std::exception
+    class   GradeTooLowException : public virtual std::exception
     {
         public:
             virtual const char* wrongGrade() const throw();
     };
 
 // Other functions
-    void    beSigned(Bureaucrat &bur);
+    virtual void    beSigned(Bureaucrat &bur) = 0;
+    virtual void    execute(Bureaucrat const &executor) const = 0;
     
 protected:
+    std::string         p_target;
 
 private:
     const std::string   _name;
