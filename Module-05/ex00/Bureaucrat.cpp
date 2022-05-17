@@ -76,7 +76,7 @@ Bureaucrat &  Bureaucrat::operator = (Bureaucrat const & rhs)
     return *this;
 }
 
-std::ostream    & operator<<(std::ostream &o, Bureaucrat const &i)
+std::ostream    & operator << (std::ostream &o, Bureaucrat const &i)
 {
     o   << std::setw(10)
         << "Bureaucrat "
@@ -144,7 +144,7 @@ void    Bureaucrat::downGrade(void)
             throw Bureaucrat::GradeTooLowException();
         this->_grade ++;
     }
-    catch(const Bureaucrat::GradeTooHighException& e)
+    catch(const Bureaucrat::GradeTooLowException& e)
     {
         std::cerr << e.what() << std::endl;
     }
