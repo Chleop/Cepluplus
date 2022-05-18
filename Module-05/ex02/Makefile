@@ -20,7 +20,8 @@ NAME	=	bureaucratsAndSpecificForms
 #									FILES									   #
 ################################################################################
 
-SRCS	:= 	$(shell find . -name '*.cpp')
+SRCS	=	main0.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp \
+			RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
