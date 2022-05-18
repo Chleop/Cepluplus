@@ -63,22 +63,15 @@ ShrubberyCreationForm &  ShrubberyCreationForm::operator = (ShrubberyCreationFor
 
 std::ostream    & operator << (std::ostream &o, ShrubberyCreationForm const &i)
 {
-    o   << "    Form "
-        << bold_on
+    o   << bold_on
+        << "    Form "
         << i.getName()
-        << bold_off
         << " (min signing grade "
-        << bold_on
         << i.getSigningMinGrade()
-        << bold_off
         << ", min executing grade "
-        << bold_on
         << i.getExecutingMinGrade()
-        << bold_off
         << "), with target "
-        << bold_on
-        << i.getTarget()
-        << bold_off;
+        << i.getTarget();
     if (i.getSignature() == false)
         o    << " has not been signed yet.";
     else
@@ -128,11 +121,13 @@ void    ShrubberyCreationForm::beSigned(Bureaucrat &bur)
         if (bur.getGrade() > this->_signingMinGrade)
             throw ShrubberyCreationForm::GradeTooLowException();
         this->_signature = true;
-        std::cout   << "Bureaucrat "
-            << bur.getName()
-            << " signed ShrubberyCreationForm "
-            << this->_name
-            << std::endl;
+        std::cout   << bold_on
+                    << "Bureaucrat "
+                    << bur.getName()
+                    << " signed ShrubberyCreationForm "
+                    << this->_name
+                    << bold_off
+                    << std::endl;
     }
     catch (const ShrubberyCreationForm::GradeTooLowException& e)
     {
@@ -150,7 +145,7 @@ void    ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
     try
     {
-        if (executor.getGrade() > this->_executingMinGrade)
+        if ((executor.getGrade() > this->_executingMinGrade) || (this->_signature == false))
             throw ShrubberyCreationForm::GradeTooLowException();
         std::ofstream   ofs((this->p_target+ "_shrubbery").c_str());
 
@@ -179,8 +174,11 @@ void    ShrubberyCreationForm::execute(Bureaucrat const &executor) const
                     << executor.getName()
                     << " cannot execute ShrubberyCreationForm "
                     << this->_name
-                    << " because "
-                    << e.wrongGrade() << std::endl;
+                    << " because ";
+        if (this->_signature == false)
+            std::cerr << "it has'n been signed." << std::endl;
+        else
+            std::cerr << e.wrongGrade() << std::endl;
     }
     return;
 }

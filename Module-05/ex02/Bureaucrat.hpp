@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 10:00:27 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/17 18:44:48 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/18 11:21:47 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <iomanip>
 # include <fstream>
+# include <stdlib.h>
+# include <time.h>
 # include "Form.hpp"
 
 

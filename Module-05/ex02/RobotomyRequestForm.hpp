@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 14:49:26 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/17 17:05:20 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/18 10:55:47 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 
 // Constructors and destructors
     RobotomyRequestForm(void);
-    RobotomyRequestForm(std::string name);
+    RobotomyRequestForm(std::string name, std::string target);
     RobotomyRequestForm(RobotomyRequestForm const & src);
     ~RobotomyRequestForm(void);
 
@@ -43,6 +43,7 @@ public:
 
 // Other functions
     void    beSigned(Bureaucrat &bur);
+    void    execute(Bureaucrat const &executor) const;
 
 protected:
 
