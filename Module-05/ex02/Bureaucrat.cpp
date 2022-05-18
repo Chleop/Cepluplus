@@ -41,11 +41,7 @@ _name(name)
         }
         this->_grade = grade;
     }
-    catch(Bureaucrat::GradeTooHighException& e)
-    {
-        std::cerr << e.what() << std::endl;
-    }
-    catch(Bureaucrat::GradeTooLowException& e)
+    catch(std::exception & e)
     {
         std::cerr << e.what() << std::endl;
     }
@@ -130,7 +126,7 @@ void    Bureaucrat::upGrade(void)
             throw Bureaucrat::GradeTooHighException();
         this->_grade --;
     }
-    catch(Bureaucrat::GradeTooHighException& e)
+    catch(std::exception& e)
     {
         std::cerr << e.what() << std::endl;
     }
@@ -144,7 +140,7 @@ void    Bureaucrat::downGrade(void)
             throw Bureaucrat::GradeTooLowException();
         this->_grade ++;
     }
-    catch(const Bureaucrat::GradeTooLowException& e)
+    catch(std::exception& e)
     {
         std::cerr << e.what() << std::endl;
     }
