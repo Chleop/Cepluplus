@@ -34,13 +34,9 @@ _name(name), _signature(false), _signingMinGrade(signingMin), _executingMinGrade
         if ((signingMin > 150) || (executingMin > 150))
             throw Form::GradeTooLowException();
     }
-    catch(Form::GradeTooHighException& e)
+    catch(std::exception& e)
     {
-        std::cerr << "---" << e.wrongGrade() << std::endl;
-    }
-    catch(Form::GradeTooLowException& e)
-    {
-        std::cerr << "---" << e.wrongGrade() << std::endl;
+        std::cerr << "---" << e.what() << std::endl;
     }
     return;
 }
@@ -124,12 +120,12 @@ int                 Form::getExecutingMinGrade(void) const
 //                                EXCEPTIONS                                 //
 // **************************************************************************//
 
-const char* Form::GradeTooHighException::wrongGrade() const throw()
+const char* Form::GradeTooHighException::what() const throw()
 {
     return ("Grade is too high---");
 }
 
-const char* Form::GradeTooLowException::wrongGrade() const throw()
+const char* Form::GradeTooLowException::what() const throw()
 {
     return ("Grade is too low---");
 }
@@ -159,7 +155,7 @@ void    Form::beSigned(Bureaucrat &bur)
                     << " cannot sign form "
                     << this->_name
                     << " because "
-                    << e.wrongGrade() << std::endl;
+                    << e.what() << std::endl;
     }
     return;
 }

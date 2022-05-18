@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 10:00:27 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/17 16:56:01 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/18 17:57:49 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ public:
     class   GradeTooHighException : public std::exception
     {
         public:
-            virtual const char* wrongGrade() const throw();
+            virtual const char* what() const throw();
     };
     class   GradeTooLowException : public std::exception
     {
         public:
-            virtual const char* wrongGrade() const throw();
+            virtual const char* what() const throw();
     };
 
 // Other functions
