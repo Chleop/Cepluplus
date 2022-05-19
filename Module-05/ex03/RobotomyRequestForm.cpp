@@ -17,7 +17,7 @@
 // **************************************************************************//
 
 RobotomyRequestForm::RobotomyRequestForm(void):
-_name("Default"), _signature(false), _signingMinGrade(72), _executingMinGrade(45)
+_name("Default_RobotomyRequestForm"), _signature(false), _signingMinGrade(72), _executingMinGrade(45)
 {
     // std::cout << "RobotomyRequestForm Default constructor called" << std::endl;
     this->p_target = "Default";
@@ -25,7 +25,7 @@ _name("Default"), _signature(false), _signingMinGrade(72), _executingMinGrade(45
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string name, std::string target):
-_name(name), _signature(false), _signingMinGrade(72), _executingMinGrade(45)
+_name(name.append("_RobotomyRequestForm")), _signature(false), _signingMinGrade(72), _executingMinGrade(45)
 {
     // std::cout << "RobotomyRequestForm Parametric constructor called" << std::endl;
     this->p_target = target;

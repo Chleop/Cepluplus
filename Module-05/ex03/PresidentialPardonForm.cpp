@@ -17,7 +17,7 @@
 // **************************************************************************//
 
 PresidentialPardonForm::PresidentialPardonForm(void):
-_name("Default"), _signature(false), _signingMinGrade(25), _executingMinGrade(5)
+_name("Default_PresidentialPardonForm"), _signature(false), _signingMinGrade(25), _executingMinGrade(5)
 {
     // std::cout << "PresidentialPardonForm Default constructor called" << std::endl;
     this->p_target = "Default";
@@ -25,7 +25,7 @@ _name("Default"), _signature(false), _signingMinGrade(25), _executingMinGrade(5)
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string name, std::string target):
-_name(name), _signature(false), _signingMinGrade(25), _executingMinGrade(5)
+_name(name.append("_PresidentialPardonForm")), _signature(false), _signingMinGrade(25), _executingMinGrade(5)
 {
     // std::cout << "PresidentialPardonForm Parametric constructor called" << std::endl;
     this->p_target = target;

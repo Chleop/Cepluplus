@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 18:05:52 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/18 18:25:10 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/19 15:50:55 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ Intern::~Intern(void)
 //                                 OPERATORS                                 //
 // **************************************************************************//
 
-Intern &  Intern::operator = (Intern const & rhs)
+Intern &  Intern::operator = (Intern const &)
 {
     // std::cout << "Intern assisgnment operator" << std::endl;
+    
     return *this;
 }
 
@@ -58,23 +59,48 @@ Intern &  Intern::operator = (Intern const & rhs)
 //                              EXCEPTIONS                                   //
 // **************************************************************************//
 
+const char* Intern::NameDoesNotExist::what() const throw()
+{
+    return("---Forn name does not exist---");
+}
 
 // **************************************************************************//
 //                           PUBLIC FUNCTIONS                                //
 // **************************************************************************//
 
-Form    Intern::*makeForm(std::string formName, std::string formTarget)
+Form *Intern::makeShrubberyCreationForm(std::string name, std::string target)
 {
-    std::string strFormsArray[3] = {"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
-    Form        *classFormsArray[3];
-    int         i;
+    ShrubberyCreationForm *new_shrub = new ShrubberyCreationForm(name, target);
+    return new_shrub;
+}
+
+Form *Intern::makeRobotomyRequestForm(std::string name, std::string target)
+{
+    RobotomyRequestForm *new_rob = new RobotomyRequestForm(name, target);
+    return new_rob;
+}
+
+Form *Intern::makePresidentialPardonForm(std::string name, std::string target)
+{
+    PresidentialPardonForm *new_pres = new PresidentialPardonForm(name, target);
+    return new_pres;
+}
     
-    classFormsArray[0] = new ShrubberyCreationForm();
-    classFormsArray[1] = new RobotomyRequestForm();
-    classFormsArray[2] = new PresidentialPardonForm();
+Form    *Intern::makeForm(std::string formName, std::string formTarget)
+{
+    int         i;
+    std::string strFormsArray[3] = {"Shrubbery creation", "Robotomy request", "Presidential pardon"};
+    typedef Form *(Intern::*InternMemberFunctionspointer)(std::string name, std::string target);
+    InternMemberFunctionspointer p[3];
+    
+    p[0] = &Intern::makeShrubberyCreationForm;
+    p[1] = &Intern::makeRobotomyRequestForm;
+    p[2] = &Intern::makePresidentialPardonForm;
+
     for (i = 0; i < 3; i++)
     {
-        
+        if (formName.compare(strFormsArray[i]) == 0)
+            return ((this->*(p[i]))(formName, formTarget));
     }
-    return ;
+    throw Intern::NameDoesNotExist();
 }

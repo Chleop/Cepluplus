@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 18:05:56 by cproesch          #+#    #+#             */
-/*   Updated: 2022/05/18 18:11:47 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/05/19 14:53:05 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define INTERN_HPP
 
 # include "Form.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
 
 // ************************************************************************** //
 //                                     CLASS                                  //
@@ -30,7 +33,16 @@ public:
 
     Intern  &operator = (Intern const & rhs);
 
-    Form    *makeForm(std::string formName, std::string formTarget);
+    Form                    *makeForm(std::string formName, std::string formTarget);
+    Form   *makeShrubberyCreationForm(std::string name, std::string target);
+    Form     *makeRobotomyRequestForm(std::string name, std::string target);
+    Form  *makePresidentialPardonForm(std::string name, std::string target);
+
+    class NameDoesNotExist : public std::exception
+    {
+        public:
+             virtual const char* what() const throw();
+    };
 
 private:
 

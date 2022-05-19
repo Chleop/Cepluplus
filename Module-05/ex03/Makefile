@@ -21,7 +21,7 @@ NAME	=	bureaucratsAndSpecificForms
 ################################################################################
 
 SRCS	=	main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp \
-			RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+			RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
