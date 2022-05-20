@@ -17,7 +17,7 @@
 // **************************************************************************//
 
 ShrubberyCreationForm::ShrubberyCreationForm(void):
-_name("Default_ShrubberyCreationForm"), _signature(false), _signingMinGrade(145), _executingMinGrade(137)
+_name("Default"), _signature(false), _signingMinGrade(145), _executingMinGrade(137)
 {
     // std::cout << "ShrubberyCreationForm Default constructor called" << std::endl;
     this->p_target = "Default";
@@ -25,7 +25,7 @@ _name("Default_ShrubberyCreationForm"), _signature(false), _signingMinGrade(145)
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string name, std::string target):
-_name(name.append("_ShrubberyCreationForm")), _signature(false), _signingMinGrade(145), _executingMinGrade(137)
+_name(name), _signature(false), _signingMinGrade(145), _executingMinGrade(137)
 {
     // std::cout << "ShrubberyCreationForm Parametric constructor called" << std::endl;
     this->p_target = target;
