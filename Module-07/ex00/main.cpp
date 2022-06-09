@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 13:02:17 by cproesch          #+#    #+#             */
-/*   Updated: 2022/06/08 18:25:25 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/06/09 10:56:01 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ private:
 
 std::ostream & operator << (std::ostream & o, A & a)
 {
-    o << a.get_i() << std::endl;
+    o << a.get_i();
     return o;
 }
 
@@ -50,12 +50,11 @@ int main( void )
     std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
     std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 
-    
     A e(2);
     A f(4);
     
     swap(e, f);
-    std::cout << "e = " << e << "f = " << f << std::endl;
+    std::cout << "e = " << e << ", f = " << f << std::endl;
     std::cout << "min( e, f ) = " << ::min( e, f ) << std::endl;
     std::cout << "max( e, f ) = " << ::max( e, f ) << std::endl;
     
