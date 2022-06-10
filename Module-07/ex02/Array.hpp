@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 11:01:20 by cproesch          #+#    #+#             */
-/*   Updated: 2022/06/08 17:14:20 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/06/10 10:57:17 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ public:
         return *this;
     }
 // SUBSCRIPT OPERATOR    
-    T & operator [] (unsigned int const index)
+    T & operator [] (unsigned int const index) const
     {
         if (index >= (this->_size))
             throw std::exception();

@@ -97,6 +97,10 @@ void Harl::complain(std::string level)
 // "type Class::fonction(types d'args)" tels que declares ci-dessus)),
 // le pointeur sera donc exprime ainsi : "type (Class::*pointeur)(types d'args)"
 // Ne pas oublier les parentheses autour du pointeur avant le (types d'args).
+// https://stackoverflow.com/questions/252748/how-can-i-use-an-array-of-function-pointers
+// https://www.guru99.com/c-function-pointers.html (partie array function pointers)
+// https://www.bestprog.net/en/2018/07/15/classes-and-arrays-arrays-of-pointers-to-the-class-members-methods-examples/
+
     
     if (level.compare("DEBUG") && level.compare("INFO") && level.compare("WARNING") \
     && level.compare("ERROR"))
