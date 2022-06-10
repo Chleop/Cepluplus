@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 19:06:11 by cproesch          #+#    #+#             */
-/*   Updated: 2022/06/09 19:43:00 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/06/10 14:46:57 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,15 @@ public:
 
     Span & operator = (Span const & rhs);
 
-    unsigned int get_max(void) const;
+    unsigned int getMax(void) const;
+    std::list <int> getMylist(void) const;
+    void addNumber(int num);
+    int shortestSpan(void) const;
+    int longestSpan(void) const;
 
 private:
     unsigned int _max;
+    std::list <int> _myList; 
 
 
 };

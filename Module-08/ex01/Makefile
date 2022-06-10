@@ -20,7 +20,7 @@ NAME	=	span
 #									FILES									   #
 ################################################################################
 
-SRCS	=	main.cpp 
+SRCS	=	main.cpp Span.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
