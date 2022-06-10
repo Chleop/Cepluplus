@@ -6,27 +6,28 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 16:20:17 by cproesch          #+#    #+#             */
-/*   Updated: 2022/06/10 12:00:22 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/06/10 12:20:51 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
-#include <deque>
 
-#define TEST_INT 7
-
-void    print_deque_init(void)
+void    init_deque(std::deque <int> & mydeque)
 {
     std::cout   << std::endl 
             << "\033[32m"
             << "### INITIALIZING DEQUE WITH 6 ELEMENTS FROM 0 TO 5 "
             << "\033[37m"
             << std::endl;
+    for (int i = 0; i <= 5; i++)
+        mydeque.push_back(i);
     return;
 }
 
-void    print_vector_init(void)
+void    init_vector(std::vector <int> & myvector)
 {
+    for (int i = 0; i <= 20; i++)
+        myvector.push_back(i);
     std::cout   << std::endl 
                 << "\033[32m"
                 << "### INITIALIZING VECTOR WITH 21 ELEMENTS FROM 0 TO 20 "
@@ -62,21 +63,16 @@ void test (T container1, int test_int)
 int main (void)
 {
     std::deque <int> mydeque;
-    std::vector <int> vector1;
+    std::vector <int> myvector;
 
 // initializing the deque with values from 0 to 5
-    print_deque_init();
-    for (int i = 0; i <= 5; i++)
-        mydeque.push_back(i);
-    
+    init_deque(mydeque);
+// testing the dequeu 
     test(mydeque, TEST_INT);
 
 // initializing the vector with values from 0 to 20
-    print_vector_init();
-    for (int i = 0; i <= 20; i++)
-        vector1.push_back(i);
-
-    test(vector1, TEST_INT);
+    init_vector(myvector);
+// testing the vector
+    test(myvector, TEST_INT);
     return 0;
 }
-
