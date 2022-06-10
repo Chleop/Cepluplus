@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 16:21:24 by cproesch          #+#    #+#             */
-/*   Updated: 2022/06/09 18:58:26 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/06/10 11:33:18 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@
 // std::vector<int>::iterator == class "iterator" that is within the scope of the 
 // class "vector<T>" with T = int
 
+
+// typedef typename T::iterator iter;
+
 template < typename T >
-std::vector<int>::iterator easyfind (T & t_container, const int & i)
+typename T::iterator easyfind (T & t_container, const int & i)
 {
-    std::vector<int>::iterator p;
+    typename T::iterator p;
 
     p = std::find(t_container.begin(), t_container.end(), i); 
     return p;
