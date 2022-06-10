@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 16:20:17 by cproesch          #+#    #+#             */
-/*   Updated: 2022/06/10 12:20:51 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/06/10 12:23:26 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,19 @@ void    init_deque(std::deque <int> & mydeque)
 
 void    init_vector(std::vector <int> & myvector)
 {
-    for (int i = 0; i <= 20; i++)
-        myvector.push_back(i);
     std::cout   << std::endl 
                 << "\033[32m"
                 << "### INITIALIZING VECTOR WITH 21 ELEMENTS FROM 0 TO 20 "
                 << "\033[37m"
                 << std::endl;
+    for (int i = 0; i <= 20; i++)
+        myvector.push_back(i);
     return;
 }
 
 template < typename T >
 void test (T container1, int test_int)
 {
-// specifying that T::iterator is a typename
     typename T::iterator iter;
 
     std::cout   << std::endl 
