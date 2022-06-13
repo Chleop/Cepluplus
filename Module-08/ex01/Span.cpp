@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 19:16:08 by cproesch          #+#    #+#             */
-/*   Updated: 2022/06/13 16:28:46 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/06/13 18:47:48 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 //                       CONSTRUCTORS / DESTRUCTORS                          //
 // **************************************************************************//
 
-Span::Span(void){ return; }
+Span::Span(void) : _myList() { return; }
 
 Span::Span(unsigned int N) :
-_max(N)
+_max(N), _myList()
 {
     return;
 }
@@ -47,12 +47,12 @@ Span & Span::operator = (Span const & rhs)
 //                                 ACCESSORS                                 //
 // **************************************************************************//
 
-unsigned int Span::getMax(void) const
+const unsigned int & Span::getMax(void) const
 {
     return this->_max;
 }
 
-std::list <int> Span::getMylist(void) const
+const std::list <int> & Span::getMylist(void) const
 {
     return this->_myList;
 }
@@ -66,7 +66,6 @@ void Span::addNumber(int num)
     std::cout <<  "taille de ma liste : " << getMylist().size() << std::endl;
     if (this->_myList.size() > getMax())
         throw std::exception();
-    // getMylist().push_back(num);
     this->_myList.push_back(num);
     std::cout <<  "Dans addnumber, last = " << (this->_myList.back()) << std::endl;
     return;
@@ -75,22 +74,18 @@ void Span::addNumber(int num)
 int Span::shortestSpan(void) const
 {
     int i = 0;
+    std::list <int> sortedList = this->_myList;
+    
+    sortedList.sort();
+    
     return i;
 }
 
 int Span::longestSpan(void) const
 {
-    int result;
-    int smallest;
-    int biggest;
-    std::list <int> ::iterator iter;
+    std::list <int> myList = this->_myList;
     
-    getMylist().sort();
-    iter = getMylist().begin();
-    smallest = *iter;
-    while (iter != getMylist().end())
-        iter++;
-    biggest = *(iter--);
-    result = biggest -smallest;
-    return result;
+    // sort(getMylist().begin(), getMylist().end());
+    myList.sort();
+    return (*--(getMylist().end()) - *(getMylist().begin()));
 }
