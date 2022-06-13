@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 19:16:08 by cproesch          #+#    #+#             */
-/*   Updated: 2022/06/10 14:55:26 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/06/13 16:28:46 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 Span::Span(void){ return; }
 
 Span::Span(unsigned int N) :
-_max(N), _myList()
+_max(N)
 {
     return;
 }
@@ -63,10 +63,12 @@ std::list <int> Span::getMylist(void) const
 
 void Span::addNumber(int num)
 {
-    if (getMylist().size() > getMax())
+    std::cout <<  "taille de ma liste : " << getMylist().size() << std::endl;
+    if (this->_myList.size() > getMax())
         throw std::exception();
-    getMylist().push_back(num);
-    std::cout <<  "Dans addnumber" << *(getMylist().end() --) << std::endl;
+    // getMylist().push_back(num);
+    this->_myList.push_back(num);
+    std::cout <<  "Dans addnumber, last = " << (this->_myList.back()) << std::endl;
     return;
 }
 
