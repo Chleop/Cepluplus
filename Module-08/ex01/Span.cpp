@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 19:16:08 by cproesch          #+#    #+#             */
-/*   Updated: 2022/06/13 18:47:48 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/06/14 14:42:19 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,45 +47,50 @@ Span & Span::operator = (Span const & rhs)
 //                                 ACCESSORS                                 //
 // **************************************************************************//
 
-const unsigned int & Span::getMax(void) const
+unsigned int Span::getMax(void) const
 {
     return this->_max;
-}
-
-const std::list <int> & Span::getMylist(void) const
-{
-    return this->_myList;
 }
 
 // **************************************************************************//
 //                              PUBLIC FUNCTIONS                             //
 // **************************************************************************//
 
-void Span::addNumber(int num)
+int Span::addNumber(int num)
 {
-    std::cout <<  "taille de ma liste : " << getMylist().size() << std::endl;
-    if (this->_myList.size() > getMax())
-        throw std::exception();
+    if (this->_myList.size() + 1 > getMax())
+        throw "List has already met its max";
     this->_myList.push_back(num);
-    std::cout <<  "Dans addnumber, last = " << (this->_myList.back()) << std::endl;
-    return;
+    return num;
 }
 
-int Span::shortestSpan(void) const
+int Span::shortestSpan(void)
 {
-    int i = 0;
-    std::list <int> sortedList = this->_myList;
+    std::list <int> :: iterator prev;
+    std::list <int> :: iterator iter;
+    int minDiff = INT_MAX;
+    int diff = 0;
     
-    sortedList.sort();
-    
-    return i;
+    if (this->_myList.size() <= 1)
+        throw "List contains less than 2 elements";
+    this->_myList.sort();
+    iter = this->_myList.begin();
+    prev = iter;
+    ++iter;
+    for (; iter != this->_myList.end(); iter++)
+    {
+        diff = (*iter - *prev);
+        prev = iter;
+        if (diff < minDiff)
+            minDiff = diff;
+    }
+    return minDiff;
 }
 
-int Span::longestSpan(void) const
+int Span::longestSpan(void)
 {
-    std::list <int> myList = this->_myList;
-    
-    // sort(getMylist().begin(), getMylist().end());
-    myList.sort();
-    return (*--(getMylist().end()) - *(getMylist().begin()));
+    if (this->_myList.size() <= 1)
+        throw "List contains less than 2 elements";
+    this->_myList.sort();
+    return (*--(this->_myList.end()) - *(this->_myList.begin()));
 }
