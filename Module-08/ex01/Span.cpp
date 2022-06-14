@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 19:16:08 by cproesch          #+#    #+#             */
-/*   Updated: 2022/06/14 14:42:19 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/06/14 17:46:22 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,3 +94,34 @@ int Span::longestSpan(void)
     this->_myList.sort();
     return (*--(this->_myList.end()) - *(this->_myList.begin()));
 }
+
+int current = 0;
+int UniqueNumber (void) 
+{
+    ++current;
+    return current;
+}
+
+void    Span::generate_n_elements(int N)
+{
+    std::cout << "Size = " << this->_myList.size() << std::endl;
+    
+    std::generate_n(this->_myList.begin(), N, UniqueNumber);
+    
+    
+    std::list <int> :: iterator iter;
+    iter = this->_myList.begin();
+    
+    std::cout << "Size = " << this->_myList.size() << std::endl;
+    std::cout << "Start = " << *(this->_myList.begin()) << std::endl;
+    std::cout << "End = " << (this->_myList.back()) << std::endl;
+    
+    for (; iter != this->_myList.end(); iter++)
+    {
+        std::cout << "element : " << *iter << std::endl;
+    }
+
+    
+    return;
+}
+    
