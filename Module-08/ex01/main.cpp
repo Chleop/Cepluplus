@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 16:20:17 by cproesch          #+#    #+#             */
-/*   Updated: 2022/06/14 17:47:50 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/06/15 11:05:30 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,53 +26,60 @@
 // return 0;
 // }
 
+int current = 0;
+int UniqueNumber (void) 
+{
+    ++current;
+    return current;
+}
+
 int main (void)
 {
-//     Span mySpan(3);
+    Span mySpan(3);
 
-// // Test 1
-//     std::cout << std::endl << "TEST 1 :" << std::endl;
-//     try
-//     {
-//         std::cout << "Adding number : " << mySpan.addNumber(6) << std::endl;
+// Test 1
+    std::cout << std::endl << "TEST 1 :" << std::endl; 
+    try
+    {
+        std::cout << "Adding number : " << mySpan.addNumber(6) << std::endl;
 
-//         std::cout << "Longest span : " << mySpan.longestSpan() << std::endl;
-//         std::cout << "Shortest span : " << mySpan.shortestSpan() << std::endl;
-//     }
-//     catch(const char * e)
-//     {
-//         std::cerr << "Exception : " << e << std::endl;
-//     }
+        std::cout << "Longest span : " << mySpan.longestSpan() << std::endl;
+        std::cout << "Shortest span : " << mySpan.shortestSpan() << std::endl;
+    }
+    catch(const char * e)
+    {
+        std::cerr << "Exception : " << e << std::endl;
+    }
     
-// // Test 2
-//     std::cout << std::endl << "TEST 2 :" << std::endl;
-//     try
-//     {
-//         std::cout << "Adding number : " << mySpan.addNumber(3) << std::endl;
-//         std::cout << "Adding number : " << mySpan.addNumber(666) << std::endl;
+// Test 2
+    std::cout << std::endl << "TEST 2 :" << std::endl;
+    try
+    {
+        std::cout << "Adding number : " << mySpan.addNumber(3) << std::endl;
+        std::cout << "Adding number : " << mySpan.addNumber(666) << std::endl;
 
-//         std::cout << "Longest span : " << mySpan.longestSpan() << std::endl;
-//         std::cout << "Shortest span : " << mySpan.shortestSpan() << std::endl;
-//     }
-//     catch(const char * e)
-//     {
-//         std::cerr << "Exception : " << e << std::endl;
-//     }
+        std::cout << "Longest span : " << mySpan.longestSpan() << std::endl;
+        std::cout << "Shortest span : " << mySpan.shortestSpan() << std::endl;
+    }
+    catch(const char * e)
+    {
+        std::cerr << "Exception : " << e << std::endl;
+    }
 
-// // Test 3
-//     std::cout << std::endl << "TEST 3 :" << std::endl;
-//     try
-//     {
-//         std::cout << "Adding number : " << mySpan.addNumber(33) << std::endl;
-//         std::cout << "Adding number : " << mySpan.addNumber(333) << std::endl;
+// Test 3
+    std::cout << std::endl << "TEST 3 :" << std::endl;
+    try
+    {
+        std::cout << "Adding number : " << mySpan.addNumber(33) << std::endl;
+        std::cout << "Adding number : " << mySpan.addNumber(333) << std::endl;
 
-//         std::cout << "Longest span : " << mySpan.longestSpan() << std::endl;
-//         std::cout << "Shortest span : " << mySpan.shortestSpan() << std::endl;
-//     }
-//     catch(const char * e)
-//     {
-//         std::cerr << "Exception : " << e << std::endl;
-//     }
+        std::cout << "Longest span : " << mySpan.longestSpan() << std::endl;
+        std::cout << "Shortest span : " << mySpan.shortestSpan() << std::endl;
+    }
+    catch(const char * e)
+    {
+        std::cerr << "Exception : " << e << std::endl;
+    }
     
 // Test 4
     std::cout << std::endl << "TEST 4 :" << std::endl;
@@ -80,7 +87,7 @@ int main (void)
 
     try
     {
-        mySpan2.generate_n_elements(9);
+        mySpan2.generate_n_elements(100000, UniqueNumber);
         std::cout << "Longest span : " << mySpan2.longestSpan() << std::endl;
         std::cout << "Shortest span : " << mySpan2.shortestSpan() << std::endl;
     }
@@ -88,5 +95,6 @@ int main (void)
     {
         std::cerr << "Exception : " << e << std::endl;
     }
+    std::cout << std::endl;
     return 0;
 }

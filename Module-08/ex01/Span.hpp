@@ -6,7 +6,7 @@
 /*   By: cproesch <cproesch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 19:06:11 by cproesch          #+#    #+#             */
-/*   Updated: 2022/06/14 17:16:47 by cproesch         ###   ########.fr       */
+/*   Updated: 2022/06/15 11:00:25 by cproesch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ public:
     int addNumber(int num);
     int shortestSpan(void);
     int longestSpan(void);
-    void generate_n_elements(int N);
+    void generate_n_elements(unsigned int N, int generator());
     
 private:
     unsigned int _max;
