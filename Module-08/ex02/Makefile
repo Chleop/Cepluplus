@@ -20,7 +20,7 @@ NAME	=	mutantStack
 #									FILES									   #
 ################################################################################
 
-SRCS	=	main.cpp MutantStack.cpp
+SRCS	=	main.cpp 
 
 OBJS	=	$(SRCS:.cpp=.o)
 
